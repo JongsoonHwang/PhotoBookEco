@@ -24,4 +24,6 @@
         <activity android:name="PhotoBook"></activity>
     </application>
 
+    
+    
 </manifest>
