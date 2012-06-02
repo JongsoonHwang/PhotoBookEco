@@ -9,6 +9,8 @@ import android.widget.TextView;
 /*
  * 2012. 06. 02
  * List=>재빈, 버튼 3개 => 쎄라누나
+ * 사진 가져오기, 찍기 => 
+ * 디비 연동 =>
  */
 
 public class NewPhotoBook extends Activity {
