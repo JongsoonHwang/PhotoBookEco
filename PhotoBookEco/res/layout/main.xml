@@ -4,11 +4,24 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
+
+    <ListView 	android:id="@android:id/list"
+        		android:layout_width="fill_parent"
+        	  	android:layout_height="fill_parent"
+        	  />     
+        	     
+<!--     <TextView
         android:id="@+id/intro"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/intro"
         android:layout_gravity="center" />
+ -->    
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="표시할 내용이 없습니다."
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

@@ -10,6 +10,8 @@ import android.widget.TextView;
  * 2012. 06. 02
  * TAB => Àçºó, ½½¶óÀÌµå => Àçºó(themeslide Àç»ç¿ëÇÔ)
  * ÀÏ¹Ý·è, Ä«Åå ·è =>½ê¶ó´©³ª
+ * ´ÙÀ½ ÁÖ
+ * SNS => ¹Ì´Ï ¸®½ºÆ® , sns
  */
 
 
@@ -18,7 +20,7 @@ public class PhotoBook extends Activity {
 	final String TAG = "PhotoBook";
 	
 	final int resIntroID 	= R.id.intro;
-	final int resLayoutID 	= R.layout.main;
+	final int resLayoutID 	= R.layout.photobook;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
