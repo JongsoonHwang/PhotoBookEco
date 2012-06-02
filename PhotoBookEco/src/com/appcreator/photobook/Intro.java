@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-public class PhotoBookEcoActivity extends Activity {
+public class Intro extends Activity {
 	
 	final String TAG = "PhotoBookEcoActivity";
 	
