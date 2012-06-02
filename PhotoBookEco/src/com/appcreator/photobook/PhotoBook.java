@@ -6,6 +6,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+/*
+ * 2012. 06. 02
+ * TAB => Àçºó, ½½¶óÀÌµå => Àçºó(themeslide Àç»ç¿ëÇÔ)
+ * ÀÏ¹Ý·è, Ä«Åå ·è =>½ê¶ó´©³ª
+ */
+
+
 public class PhotoBook extends Activity {
 
 	final String TAG = "PhotoBook";

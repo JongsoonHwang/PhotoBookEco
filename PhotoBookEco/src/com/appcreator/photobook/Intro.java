@@ -6,6 +6,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+/*
+ * 2012. 06. 02
+ * ¾Ù¹ü ·è => ½ê¶ó´©³ª
+ */
 public class Intro extends Activity {
 	
 	final String TAG = "PhotoBookEcoActivity";

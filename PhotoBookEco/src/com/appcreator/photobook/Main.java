@@ -6,6 +6,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+/*
+ * 2012. 06. 02
+ * List(expanded, ´õ¹Ì)=>Àçºó, ±¤°í
+ */
 public class Main extends Activity {
 
 	final String TAG = "Main";

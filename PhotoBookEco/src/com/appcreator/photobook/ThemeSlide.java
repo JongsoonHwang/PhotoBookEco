@@ -6,6 +6,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+/*
+ * 2012. 06. 02
+ * 슬라이드=>재빈
+ */
+
 public class ThemeSlide extends Activity {
 
 	final String TAG = "ThemeSlide";

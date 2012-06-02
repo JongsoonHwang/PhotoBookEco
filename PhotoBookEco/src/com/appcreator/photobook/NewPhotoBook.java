@@ -6,6 +6,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+/*
+ * 2012. 06. 02
+ * List=>Àçºó, ¹öÆ° 3°³ => ½ê¶ó´©³ª
+ */
+
 public class NewPhotoBook extends Activity {
 
 	final String TAG = "NewPhotoBook";
