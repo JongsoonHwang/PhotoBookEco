@@ -24,18 +24,20 @@ public class ThemeSlide extends Activity {
 	    super.onCreate(savedInstanceState);
 	
 	    setContentView(resLayoutID);
+	    
+	    
         
-	       ((TextView)findViewById(resIntroID)).setOnClickListener(new View.OnClickListener() {
-
-	    	   public void onClick(View v) {
-					
-	    		   Log.e(TAG,"onClick");
-	    		   Intent i = new Intent(ThemeSlide.this,PhotoBook.class);
-	    		   startActivity(i);
-	    		   
-	    		   
-				}
-	       });
+//	       ((TextView)findViewById(resIntroID)).setOnClickListener(new View.OnClickListener() {
+//
+//	    	   public void onClick(View v) {
+//					
+//	    		   Log.e(TAG,"onClick");
+//	    		   Intent i = new Intent(ThemeSlide.this,PhotoBook.class);
+//	    		   startActivity(i);
+//	    		   
+//	    		   
+//				}
+//	       });
 	}
 
 }
