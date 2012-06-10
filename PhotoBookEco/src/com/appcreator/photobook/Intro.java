@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -31,16 +32,20 @@ public class Intro extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		
         setContentView(resLayoutID);
         
-        ImgIntro  = (ImageView)findViewById(R.id.intro);
-        Animation animation = null;
-        animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
-        ImgIntro.startAnimation(animation);
+        //ImgIntro  = (ImageView)findViewById(R.id.intro);
+        //Animation animation = null;
+        //animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
+        //ImgIntro.startAnimation(animation);
         
-        mHandler = new Handler();
-        mHandler.postDelayed(runnable, 5500);
+        //mHandler = new Handler();
+        //mHandler.postDelayed(runnable, 5500);
     }
         
     Runnable runnable = new Runnable() {

@@ -22,17 +22,17 @@ public class BasicInfo {
 	/**
 	 * 동영상 저장 위치
 	 */
-	public static String FOLDER_VIDEO 		= "Photari/video/";
+	//public static String FOLDER_VIDEO 		= "Photari/video/";
 
 	/**
 	 * 녹음 저장 위치
 	 */
-	public static String FOLDER_VOICE 		= "Photari/voice/";
+	//public static String FOLDER_VOICE 		= "Photari/voice/";
 
 	/**
 	 * 손글씨 저장 위치
 	 */
-	public static String FOLDER_HANDWRITING 	= "Photari/handwriting/";
+	//public static String FOLDER_HANDWRITING 	= "Photari/handwriting/";
 
 	/**
 	 * 미디어 포맷
