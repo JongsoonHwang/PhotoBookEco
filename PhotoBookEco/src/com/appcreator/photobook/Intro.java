@@ -47,7 +47,7 @@ public class Intro extends Activity {
 		
 		public void run() {
 			// TODO Auto-generated method stub
-			Intent i = new Intent(Intro.this, PhotoBook.class);
+			Intent i = new Intent(Intro.this, Main.class);
 		    startActivity(i);
 		    finish();
 		}
