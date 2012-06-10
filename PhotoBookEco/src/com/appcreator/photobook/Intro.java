@@ -51,8 +51,10 @@ public class Intro extends CommonActivity {
     Runnable runnable = new Runnable() {
 		
 		public void run() {
-			// TODO Auto-generated method stub
-			Intent i = new Intent(Intro.this, Main.class);
+			// TODO Auto-generated method stubs
+
+			Intent i = new Intent(Intro.this, NewPhotoBook.class);
+
 		    startActivity(i);
 		    finish();
 		}

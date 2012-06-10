@@ -39,26 +39,41 @@ public class MemoListItem {
 	 * @param obj03 - memo picture_id
 	 *
 	 */
-	public MemoListItem(String memoId, String memoDate, String memoText,
-			String id_handwriting, String uri_handwriting,
-			String id_photo, String uri_photo,
-			String id_video, String uri_video,
-			String id_voice, String uri_voice
+	
+	
+	public MemoListItem(String memoId, String memoDate, String memoText, String id_photo, String uri_photo
 			)
 	{
 		mId = memoId;
-		mData = new String[10];
+		mData = new String[4];
 		mData[0] = memoDate;
 		mData[1] = memoText;
-		mData[2] = id_handwriting;
-		mData[3] = uri_handwriting;
-		mData[4] = id_photo;
-		mData[5] = uri_photo;
-		mData[6] = id_video;
-		mData[7] = uri_video;
-		mData[8] = id_voice;
-		mData[9] = uri_voice;
+		mData[2] = id_photo;
+		mData[3] = uri_photo;
+		
 	}
+	
+	
+//	public MemoListItem(String memoId, String memoDate, String memoText,
+//			String id_handwriting, String uri_handwriting,
+//			String id_photo, String uri_photo,
+//			String id_video, String uri_video,
+//			String id_voice, String uri_voice
+//			)
+//	{
+//		mId = memoId;
+//		mData = new String[10];
+//		mData[0] = memoDate;
+//		mData[1] = memoText;
+//		mData[2] = id_handwriting;
+//		mData[3] = uri_handwriting;
+//		mData[4] = id_photo;
+//		mData[5] = uri_photo;
+//		mData[6] = id_video;
+//		mData[7] = uri_video;
+//		mData[8] = id_voice;
+//		mData[9] = uri_voice;
+//	}
 
 	/**
 	 * True if this item is selectable

@@ -178,7 +178,7 @@ public class Main extends CommonActivity {
 				//voiceUriStr = getVoiceUriStr(voiceId);
 
 
-				mMemoListAdapter.addItem(new MemoListItem(memoId, dateStr, memoStr, handwritingId, handwritingUriStr, photoId, photoUriStr, videoId, videoUriStr, voiceId, voiceUriStr));
+				mMemoListAdapter.addItem(new MemoListItem("1", "2012-06-10 18:09", "오늘은 코딩하는 날", null, null));
 				
 			}
 

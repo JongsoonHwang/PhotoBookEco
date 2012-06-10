@@ -25,22 +25,22 @@ public class MemoListItemView extends LinearLayout {
 	/**
 	 * 사진 저장 위치
 	 */
-	public static String FOLDER_PHOTO 		= "MultimediaMemo/photo/";
+	public static String FOLDER_PHOTO 		= "PhotoBook/photo/";
 
 	/**
 	 * 동영상 저장 위치
 	 */
-	public static String FOLDER_VIDEO 		= "MultimediaMemo/video/";
+	public static String FOLDER_VIDEO 		= "PhotoBook/video/";
 
 	/**
 	 * 녹음 저장 위치
 	 */
-	public static String FOLDER_VOICE 		= "MultimediaMemo/voice/";
+	public static String FOLDER_VOICE 		= "PhotoBook/voice/";
 
 	/**
 	 * 손글씨 저장 위치
 	 */
-	public static String FOLDER_HANDWRITING 	= "MultimediaMemo/handwriting/";
+	public static String FOLDER_HANDWRITING 	= "PhotoBook/handwriting/";
 
 	/**
 	 * 미디어 포맷
@@ -70,7 +70,7 @@ public class MemoListItemView extends LinearLayout {
 		mContext = context;
 
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		inflater.inflate(R.layout.main, this, true);
+		inflater.inflate(R.layout.memo_listitem, this, true);
 
 		itemPhoto = (ImageView) findViewById(R.id.itemPhoto);
 
@@ -86,7 +86,7 @@ public class MemoListItemView extends LinearLayout {
 //				if(mVideoUri != null && mVideoUri.trim().length() > 0 && !mVideoUri.equals("-1")) {
 //					showVideoPlayingActivity();
 //				} else {
-//					Toast.makeText(mContext, "����� �������� ����ϴ�.", Toast.LENGTH_SHORT).show();
+//					Toast.makeText(mContext, "재생할 동영상이 없습니다.", Toast.LENGTH_SHORT).show();
 //				}
 //			}
 //		});
@@ -97,7 +97,7 @@ public class MemoListItemView extends LinearLayout {
 //				if(mVoiceUri != null && mVoiceUri.trim().length() > 0 && !mVoiceUri.equals("-1")) {
 //					showVoicePlayingActivity();
 //				} else {
-//					Toast.makeText(mContext, "����� ������ ����ϴ�.", Toast.LENGTH_SHORT).show();
+//					Toast.makeText(mContext, "재생할 음성이 없습니다.", Toast.LENGTH_SHORT).show();
 //				}
 //			}
 //		});
