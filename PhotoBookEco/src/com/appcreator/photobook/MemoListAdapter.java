@@ -65,8 +65,8 @@ public class MemoListAdapter extends BaseAdapter {
 		// set current item data
 		itemView.setContents(0, ((String) mItems.get(position).getData(0)));
 		itemView.setContents(1, ((String) mItems.get(position).getData(1)));
-		itemView.setContents(2, ((String) mItems.get(position).getData(3)));
-		itemView.setContents(3, ((String) mItems.get(position).getData(5)));
+//		itemView.setContents(2, ((String) mItems.get(position).getData(3)));
+		itemView.setContents(3, ((String) mItems.get(position).getData(3)));
 //
 //		itemView.setMediaState(mItems.get(position).getData(7),
 //				mItems.get(position).getData(9));

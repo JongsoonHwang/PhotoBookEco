@@ -39,7 +39,7 @@ public class PhotoBook extends Activity {
 	    setContentView(resLayoutID);
 	    
 	    arr = new ArrayList<String>();
-        arr.add("apple");       // ���� �迭�� �ڷ� �ֱ�             
+        arr.add("apple");     
         arr.add("orange");
     
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arr);
