@@ -31,21 +31,16 @@ public class Intro extends CommonActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		
         setContentView(resLayoutID);
         
-        ImgIntro  = (ImageView)findViewById(R.id.intro);
-        Animation animation = null;
-        animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
-        ImgIntro.startAnimation(animation);
+//        ImgIntro  = (ImageView)findViewById(R.id.intro);
+//        Animation animation = null;
+//        animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
+//        ImgIntro.startAnimation(animation);
         
-        mHandler = new Handler();
-        mHandler.postDelayed(runnable, 6000);
+        //mHandler = new Handler();
+        //mHandler.postDelayed(runnable, 6000);
     }
         
     Runnable runnable = new Runnable() {

@@ -8,7 +8,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/intro"
-        android:src="@drawable/page1"
+        android:src="@drawable/page1_2"
         android:background="#ffffff"/> 
 
 </LinearLayout>

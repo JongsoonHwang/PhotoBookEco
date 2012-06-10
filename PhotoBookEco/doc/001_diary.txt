@@ -1,0 +1,9 @@
+2012. 06. 10
+1. db => Main(ID), NewPhotoBook(SubID)
+2. Main => 광고
+3. Main, NewPhotoBook => 이미지 디자인, 아이콘
+4. 테마 슬라이드 : outofmemory, 글씨
+5. SNS 자랑하기, 공유 
+6. keystore작성
+7. 마켓 등록(skt,kt,lgt+, 안드로이드 마켓)=>마켓팅, 동영상, 발표
+8
