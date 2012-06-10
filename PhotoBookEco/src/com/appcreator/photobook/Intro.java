@@ -18,7 +18,7 @@ import android.widget.TextView;
  * 앨범 룩 => 쎄라누나(이미지 뷰)
  */
 
-public class Intro extends Activity {
+public class Intro extends CommonActivity {
 	
 	final String TAG = "PhotoBookEcoActivity";
 	
@@ -39,13 +39,13 @@ public class Intro extends Activity {
 		
         setContentView(resLayoutID);
         
-        //ImgIntro  = (ImageView)findViewById(R.id.intro);
-        //Animation animation = null;
-        //animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
-        //ImgIntro.startAnimation(animation);
+        ImgIntro  = (ImageView)findViewById(R.id.intro);
+        Animation animation = null;
+        animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
+        ImgIntro.startAnimation(animation);
         
-        //mHandler = new Handler();
-        //mHandler.postDelayed(runnable, 5500);
+        mHandler = new Handler();
+        mHandler.postDelayed(runnable, 6000);
     }
         
     Runnable runnable = new Runnable() {

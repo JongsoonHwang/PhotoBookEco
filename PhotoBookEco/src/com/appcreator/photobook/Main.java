@@ -25,7 +25,7 @@ import com.appcreator.photobook.db.PhotoBookDB;
 
 
 
-public class Main extends Activity {
+public class Main extends CommonActivity {
 
 	final String TAG = "Main";
 	
