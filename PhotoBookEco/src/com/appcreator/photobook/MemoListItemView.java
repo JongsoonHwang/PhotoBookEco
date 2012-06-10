@@ -12,38 +12,38 @@ import android.widget.Toast;
 
 public class MemoListItemView extends LinearLayout {
 	
-	/**
-	 * ¿ÜÀå ¸Þ¸ð¸® ÆÐ½º
+	/*
+	 * ì™¸ìž¥ ë©”ëª¨ë¦¬ íŒ¨ìŠ¤
 	 */
 	public static String ExternalPath = "/sdcard/";
 
 	/**
-	 * ¿ÜÀå ¸Þ¸ð¸® ÆÐ½º Ã¼Å© ¿©ºÎ
+	 * ì™¸ìž¥ ë©”ëª¨ë¦¬ íŒ¨ìŠ¤ ì²´í¬ ì—¬ë¶€
 	 */
 	public static boolean ExternalChecked = false;
 
 	/**
-	 * »çÁø ÀúÀå À§Ä¡
+	 * ì‚¬ì§„ ì €ìž¥ ìœ„ì¹˜
 	 */
 	public static String FOLDER_PHOTO 		= "MultimediaMemo/photo/";
 
 	/**
-	 * µ¿¿µ»ó ÀúÀå À§Ä¡
+	 * ë™ì˜ìƒ ì €ìž¥ ìœ„ì¹˜
 	 */
 	public static String FOLDER_VIDEO 		= "MultimediaMemo/video/";
 
 	/**
-	 * ³ìÀ½ ÀúÀå À§Ä¡
+	 * ë…¹ìŒ ì €ìž¥ ìœ„ì¹˜
 	 */
 	public static String FOLDER_VOICE 		= "MultimediaMemo/voice/";
 
 	/**
-	 * ¼Õ±Û¾¾ ÀúÀå À§Ä¡
+	 * ì†ê¸€ì”¨ ì €ìž¥ ìœ„ì¹˜
 	 */
 	public static String FOLDER_HANDWRITING 	= "MultimediaMemo/handwriting/";
 
 	/**
-	 * ¹Ìµð¾î Æ÷¸Ë
+	 * ë¯¸ë””ì–´ í¬ë§·
 	 */
 	public static final String URI_MEDIA_FORMAT		= "content://media";
 
@@ -86,7 +86,7 @@ public class MemoListItemView extends LinearLayout {
 //				if(mVideoUri != null && mVideoUri.trim().length() > 0 && !mVideoUri.equals("-1")) {
 //					showVideoPlayingActivity();
 //				} else {
-//					Toast.makeText(mContext, "Àç»ýÇÒ µ¿¿µ»óÀÌ ¾ø½À´Ï´Ù.", Toast.LENGTH_SHORT).show();
+//					Toast.makeText(mContext, "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", Toast.LENGTH_SHORT).show();
 //				}
 //			}
 //		});
@@ -97,7 +97,7 @@ public class MemoListItemView extends LinearLayout {
 //				if(mVoiceUri != null && mVoiceUri.trim().length() > 0 && !mVoiceUri.equals("-1")) {
 //					showVoicePlayingActivity();
 //				} else {
-//					Toast.makeText(mContext, "Àç»ýÇÒ À½¼ºÀÌ ¾ø½À´Ï´Ù.", Toast.LENGTH_SHORT).show();
+//					Toast.makeText(mContext, "ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", Toast.LENGTH_SHORT).show();
 //				}
 //			}
 //		});

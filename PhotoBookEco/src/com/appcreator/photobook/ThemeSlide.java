@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 /*
  * 2012. 06. 02
- * ½½¶óÀÌµå=>Àçºó
+ * ìŠ¬ë¼ì´ë“œ=>ìž¬ë¹ˆ
  */
 
 public class ThemeSlide extends Activity {

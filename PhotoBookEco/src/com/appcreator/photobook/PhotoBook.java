@@ -16,10 +16,10 @@ import android.widget.Toast;
 
 /*
  * 2012. 06. 02
- * TAB => Àçºó, ½½¶óÀÌµå => Àçºó(themeslide Àç»ç¿ëÇÔ)
- * ÀÏ¹Ý·è, Ä«Åå ·è =>½ê¶ó´©³ª
- * ´ÙÀ½ ÁÖ
- * SNS => ¹Ì´Ï ¸®½ºÆ® , sns
+ * TAB => ìž¬ë¹ˆ, ìŠ¬ë¼ì´ë“œ => ìž¬ë¹ˆ(themeslide ìž¬ì‚¬ìš©í•¨)
+ * ì¼ë°˜ë£©, ì¹´í†¡ ë£© =>ìŽ„ë¼ëˆ„ë‚˜
+ * ë‹¤ìŒ ì£¼
+ * SNS => ë¯¸ë‹ˆ ë¦¬ìŠ¤íŠ¸ , sns
  */
 
 
@@ -39,7 +39,7 @@ public class PhotoBook extends Activity {
 	    setContentView(resLayoutID);
 	    
 	    arr = new ArrayList<String>();
-        arr.add("apple");       // µ¿Àû ¹è¿­¿¡ ÀÚ·á ³Ö±â             
+        arr.add("apple");       // ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½Ú·ï¿½ ï¿½Ö±ï¿½             
         arr.add("orange");
     
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arr);

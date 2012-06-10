@@ -14,8 +14,9 @@ import android.widget.TextView;
 
 /*
  * 2012. 06. 02
- * ¾Ù¹ü ·è => ½ê¶ó´©³ª(ÀÌ¹ÌÁö ºä)
+ * ì•¨ë²” ë£© => ì„ë¼ëˆ„ë‚˜(ì´ë¯¸ì§€ ë·°)
  */
+
 public class Intro extends Activity {
 	
 	final String TAG = "PhotoBookEcoActivity";
@@ -46,7 +47,7 @@ public class Intro extends Activity {
 		
 		public void run() {
 			// TODO Auto-generated method stub
-			Intent i = new Intent(Intro.this, Main.class);
+			Intent i = new Intent(Intro.this, PhotoBook.class);
 		    startActivity(i);
 		    finish();
 		}

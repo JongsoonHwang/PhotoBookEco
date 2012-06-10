@@ -9,10 +9,11 @@ import android.widget.ListView;
 
 /*
  * 2012. 06. 02
- * List(expanded, ´õ¹Ì)=>Àçºó(Listview+ÀÌ¹ÌÁöºä:¸ÇÇÏ´Ü), 
- * ´ÙÀ½ÁÖ==>
- * ±¤°í
+ * List(expanded, ë”ë¯¸)=>ì¬ë¹ˆ(Listview+ì´ë¯¸ì§€ë·°:ë§¨í•˜ë‹¨), 
+ * ë‹¤ìŒì£¼==>
+ * ê´‘ê³ 
  */
+
 public class Main extends Activity {
 
 	final String TAG = "Main";
@@ -21,17 +22,17 @@ public class Main extends Activity {
 	final int resLayoutID 	= R.layout.main;
 	
 	/**
-	 * ¸Ş¸ğ ¸®½ºÆ®ºä
+	 * ë©”ëª¨ ë¦¬ìŠ¤íŠ¸ë·°
 	 */
 	ListView mMemoListView;
 
 	/**
-	 * ¸Ş¸ğ ¸®½ºÆ® ¾î´ğÅÍ
+	 * ë©”ëª¨ ë¦¬ìŠ¤íŠ¸ ì–´ëŒ‘í„°
 	 */
 	MemoListAdapter mMemoListAdapter;
 
 	/**
-	 * ¸Ş¸ğ °¹¼ö
+	 * ë©”ëª¨ ê°¯ìˆ˜
 	 */
 	int mMemoCount = 0;
 	
@@ -41,7 +42,7 @@ public class Main extends Activity {
 	
 	    setContentView(resLayoutID);
         
-	    // ¸Ş¸ğ ¸®½ºÆ®
+	    // ë©”ëª¨ ë¦¬ìŠ¤íŠ¸
         mMemoListView = (ListView)findViewById(R.id.memoList);
     	mMemoListAdapter = new MemoListAdapter(this);
     	
@@ -55,7 +56,7 @@ public class Main extends Activity {
 	private void viewMemo(int position) {
     	MemoListItem item = (MemoListItem)mMemoListAdapter.getItem(position);
 
-//    	// ¸Ş¸ğ º¸±â ¾×Æ¼ºñÆ¼ ¶ç¿ì±â
+//    	// ë©”ëª¨ ë³´ê¸° ì•¡í‹°ë¹„í‹° ë„ìš°ê¸°
 //		Intent intent = new Intent(getApplicationContext(), MemoInsertActivity.class);
 //		intent.putExtra(BasicInfo.KEY_MEMO_MODE, BasicInfo.MODE_VIEW);
 //		intent.putExtra(BasicInfo.KEY_MEMO_ID, item.getId());
