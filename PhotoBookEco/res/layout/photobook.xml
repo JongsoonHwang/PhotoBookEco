@@ -4,11 +4,66 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/intro"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/intro"
-        android:layout_gravity="center" />
-
+	<TabHost 
+	    android:id="@+id/tabhost"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent">
+	    <LinearLayout
+    		android:layout_width="fill_parent"
+   			android:layout_height="fill_parent"
+    		android:orientation="vertical" >
+    		<TabWidget
+    		    android:id="@android:id/tabs"
+    		    android:layout_width="wrap_content"
+    		    android:layout_height="wrap_content"
+    		    android:background="#000000" 
+    		/>
+    		<FrameLayout
+    		    android:id="@android:id/tabcontent"
+    		    android:layout_width="fill_parent"
+    		    android:layout_height="fill_parent">
+    		    <TextView 
+			        android:id="@+id/txt1"
+			    	android:layout_width="fill_parent"
+			    	android:layout_height="fill_parent"
+			    	android:text="첫 번째 탭"
+			    	android:textSize="20dp"/>
+    		    <LinearLayout 
+    		        android:layout_width="fill_parent"
+   					android:layout_height="fill_parent"
+    				android:orientation="vertical" 
+				    android:id="@+id/txt2">
+    		        <ListView 
+    		            android:layout_width="fill_parent"
+    		            android:layout_height="0dp"
+    		            android:layout_weight="9"
+    		            android:id="@+id/listview"
+    		            android:background="@drawable/list_bg"/>
+    		        <ImageView 
+    		            android:layout_width="fill_parent"
+    		            android:layout_height="0dp"
+    		            android:layout_weight="1" 
+    		            android:id="@+id/bottom_img"
+    		            android:background="#348352"/>
+    		        
+    		    </LinearLayout>
+    		    <LinearLayout 
+    		        android:layout_width="fill_parent"
+   					android:layout_height="fill_parent"
+    				android:orientation="vertical" 
+				    android:id="@+id/txt3">
+    				<TextView 
+				    	android:layout_width="fill_parent"
+				    	android:layout_height="fill_parent"
+				    	android:text="세 번째 탭"
+				    	android:textSize="40dp"/>
+    		        <Button 
+    		            android:layout_width="wrap_content"
+    		            android:layout_height="wrap_content"
+    		            android:id="@+id/tabBtn"
+    		            android:text="탭 버튼임돠"/>
+    		    </LinearLayout>
+    		</FrameLayout>
+    	</LinearLayout>
+    </TabHost>
 </LinearLayout>
