@@ -37,12 +37,12 @@ public class Intro extends CommonActivity {
         introsound = sp.load(this, R.raw.introsound, 1);
         
         ImgIntro  = (ImageView)findViewById(R.id.intro);
-        Animation animation = null;
-        animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
-        ImgIntro.startAnimation(animation);
-        
-        mHandler = new Handler();
-        mHandler.postDelayed(runnable, 6000);
+//        Animation animation = null;
+//        animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
+//        ImgIntro.startAnimation(animation);
+//        
+//        mHandler = new Handler();
+//        mHandler.postDelayed(runnable, 6000);
         
         
         new Handler().postDelayed(new Runnable() {
@@ -52,6 +52,13 @@ public class Intro extends CommonActivity {
         }, 2000);
         //sp.release();
     }
+    
+    protected void onStop() {
+    	if(sp != null){
+    		sp.stop(1);
+    		sp = null;
+    	}
+    };
         
     Runnable runnable = new Runnable() {
 		
