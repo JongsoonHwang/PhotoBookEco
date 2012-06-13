@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ToggleButton;
 
 /*
  * 2012. 06. 02
@@ -33,6 +34,17 @@ public class ThemeSlide extends Activity {
 	    super.onCreate(savedInstanceState);
 	
 	    setContentView(resLayoutID);
+	    
+	    final ToggleButton tb = (ToggleButton)this.findViewById(R.id.imageButton2);
+	    tb.setOnClickListener(new View.OnClickListener() { 
+	            public void onClick(View v) { 
+	                if (tb.isChecked()) { 
+	                 tb.setBackgroundDrawable(getResources().getDrawable(R.drawable.ic_menu_asterisk_on)); 
+	                } else { 
+	                 tb.setBackgroundDrawable(getResources().getDrawable(R.drawable.ic_menu_asterisk_off)); 
+	                }
+	             } 
+	        });	    
 	    
     
 //        try

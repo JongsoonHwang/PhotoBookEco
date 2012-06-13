@@ -50,13 +50,15 @@
             android:layout_weight="1"
             android:src="@drawable/ic_menu_android_onoff" />
 
-        <ImageButton
+        <ToggleButton
             android:id="@+id/imageButton2"
             android:soundEffectsEnabled="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_menu_asterisk_off" />     
+			android:textOff="Off Stage" 
+			android:textOn="On Stage"            
+            android:background="@drawable/ic_menu_asterisk_off" />     
 
         <ImageButton
             android:id="@+id/imageButton3"
