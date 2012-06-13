@@ -4,9 +4,13 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ToggleButton;
 
@@ -44,7 +48,28 @@ public class ThemeSlide extends Activity {
 	                 tb.setBackgroundDrawable(getResources().getDrawable(R.drawable.ic_menu_asterisk_off)); 
 	                }
 	             } 
-	        });	    
+	        });
+	    
+		final SoundPool sp;
+		final int btnsound;
+		
+		sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+		btnsound = sp.load(this, R.raw.btnsound, 1);
+	    
+
+	    final ImageButton ib = (ImageButton)this.findViewById(R.id.imageButton3);
+	    ib.setOnClickListener(new View.OnClickListener( ) { 
+	    	
+	            public void onClick(View v) { 
+	                sp.play(btnsound, 1, 1, 0, 0, 1);
+	                
+//	                new Handler().postDelayed(new Runnable() {
+//	                    public void run() {
+//	                    	sp.play(btnsound, 1, 1, 0, 0, 1);
+//	                    }
+//	                }, 100);	                
+	            } 
+	        });	
 	    
     
 //        try
