@@ -15,53 +15,58 @@ import android.widget.ImageView;
  */
 
 public class Intro extends CommonActivity {
-	
+
 	final String TAG = "PhotoBookEcoActivity";
-	
+
 	final int resIntroID 	= R.id.intro;
 	final int resLayoutID 	= R.layout.intro;
-	
+
 	ImageView ImgIntro;
 	static Handler mHandler;
+	
 	SoundPool sp;
 	int introsound;
+	int streamID;
 
-	
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		
+
         setContentView(resLayoutID);
         
         sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
         introsound = sp.load(this, R.raw.introsound, 1);
         
         ImgIntro  = (ImageView)findViewById(R.id.intro);
-//        Animation animation = null;
-//        animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
-//        ImgIntro.startAnimation(animation);
-//        
-//        mHandler = new Handler();
-//        mHandler.postDelayed(runnable, 6000);
+        Animation animation = null;
+        animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
+        ImgIntro.startAnimation(animation);
+        
+        mHandler = new Handler();
+        mHandler.postDelayed(runnable, 6000);
         
         
         new Handler().postDelayed(new Runnable() {
             public void run() {
-            	sp.play(introsound, 1, 1, 0, 0, 1);
+            	streamID = sp.play(introsound, 1, 1, 0, 0, 1);
             }
         }, 2000);
-        //sp.release();
     }
     
-    protected void onStop() {
-    	if(sp != null){
-    		sp.stop(1);
-    		sp = null;
+    protected void onStop()
+    {
+    	if ( sp != null )
+    	{
+    		sp.stop( streamID );
+    		sp.release();
     	}
-    };
+    	super.onStop();
+    }
+    
         
     Runnable runnable = new Runnable() {
-		
+
 		public void run() {
 			// TODO Auto-generated method stubs
 
