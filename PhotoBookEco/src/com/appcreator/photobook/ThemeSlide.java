@@ -46,7 +46,7 @@ public class ThemeSlide extends Activity {
 //        	e.printStackTrace(); 
 //        }	
 	    current = 0;
-	    showSlide(current);
+	   // showSlide(current);
         
 //	       ((TextView)findViewById(resIntroID)).setOnClickListener(new View.OnClickListener() {
 //
@@ -128,7 +128,7 @@ public class ThemeSlide extends Activity {
     	if( this.current > 0 ) 
     	{
     		this.current--;
-    		showSlide(this.current);
+    		//showSlide(this.current);
     		
     	}
     }
@@ -139,7 +139,7 @@ public class ThemeSlide extends Activity {
     	if( this.current < length-1 ) 
     	{
     		this.current++;
-    		showSlide(this.current);
+    		//showSlide(this.current);
     		
     	}    	
     }
