@@ -1,12 +1,10 @@
 package com.appcreator.photobook;
 
-import android.content.Intent;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 /*
@@ -27,6 +25,8 @@ public class Intro extends CommonActivity {
 	SoundPool sp;
 	int introsound;
 	int streamID;
+	
+	private MediaPlayer bgmPlayer;
 
 
     @Override
@@ -35,8 +35,14 @@ public class Intro extends CommonActivity {
 
         setContentView(resLayoutID);
         
-        sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
-        introsound = sp.load(this, R.raw.introsound, 1);
+//        sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+//        introsound = sp.load(this, R.raw.bgm_main, 1);
+        
+
+        bgmPlayer = MediaPlayer.create( this, R.raw.bgm_main );
+        bgmPlayer.start();
+        bgmPlayer.setLooping(true);
+        
         
 //        ImgIntro  = (ImageView)findViewById(R.id.intro);
 //        Animation animation = null;
@@ -47,20 +53,23 @@ public class Intro extends CommonActivity {
 //        mHandler.postDelayed(runnable, 6000);
         
         
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-            	streamID = sp.play(introsound, 1, 1, 0, 0, 1);
-            }
-        }, 2000);
+//        new Handler().postDelayed(new Runnable() {
+//            public void run() {
+//            	streamID = sp.play(introsound, 1, 1, 0, 0, 1);
+//            	amgr.playSoundEffect(effectType)
+//            }
+//        }, 1000);
     }
     
     protected void onStop()
     {
-    	if ( sp != null )
-    	{
-    		sp.stop( streamID );
-    		sp.release();
-    	}
+//    	if ( sp != null )
+//    	{
+//    		sp.stop( streamID );
+//    		sp.release();
+//    	}
+    	bgmPlayer.stop();
+    	bgmPlayer.release();
     	super.onStop();
     }
     
