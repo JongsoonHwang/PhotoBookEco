@@ -38,13 +38,13 @@ public class Intro extends CommonActivity {
         sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
         introsound = sp.load(this, R.raw.introsound, 1);
         
-        ImgIntro  = (ImageView)findViewById(R.id.intro);
-        Animation animation = null;
-        animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
-        ImgIntro.startAnimation(animation);
-        
-        mHandler = new Handler();
-        mHandler.postDelayed(runnable, 6000);
+//        ImgIntro  = (ImageView)findViewById(R.id.intro);
+//        Animation animation = null;
+//        animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
+//        ImgIntro.startAnimation(animation);
+//        
+//        mHandler = new Handler();
+//        mHandler.postDelayed(runnable, 6000);
         
         
         new Handler().postDelayed(new Runnable() {
@@ -65,17 +65,17 @@ public class Intro extends CommonActivity {
     }
     
         
-    Runnable runnable = new Runnable() {
-
-		public void run() {
-			// TODO Auto-generated method stubs
-
-			Intent i = new Intent(Intro.this, PhotoBook.class);
-			//Intent i = new Intent(Intro.this, ThemeSlide.class);
-
-		    startActivity(i);
-		    finish();
-		}
-	};
+//    Runnable runnable = new Runnable() {
+//
+//		public void run() {
+//			// TODO Auto-generated method stubs
+//
+//			//Intent i = new Intent(Intro.this, PhotoBook.class);
+//			Intent i = new Intent(Intro.this, ThemeSlide.class);
+//
+//		    startActivity(i);
+//		    finish();
+//		}
+//	};
     
 }

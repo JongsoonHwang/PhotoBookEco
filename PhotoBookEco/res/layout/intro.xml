@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -12,3 +13,39 @@
         android:background="#ffffff"/> 
 
 </LinearLayout>
+-->
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/page1_2"
+    android:stretchColumns="1">
+    
+    <View 
+        android:layout_height="100px"
+        android:background="@null" />
+    
+    <TableRow>
+        
+        <View 
+        android:layout_width="50px"
+        android:background="@null" />
+        
+	    <EditText
+	        android:id="@+id/editText1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:cursorVisible="false"
+	        android:ems="10"
+	        android:shadowColor="#000000"
+	        android:textColor="#A1B2C3"
+	        android:textSize="15pt"
+	        android:typeface="normal"
+	        android:textStyle="italic"
+			android:background="@null"
+	        android:hint="이름을 입력하세요!"
+	        android:singleLine="true" />  
+	          
+	</TableRow>
+    
+</TableLayout>
