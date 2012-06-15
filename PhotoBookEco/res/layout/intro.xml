@@ -22,13 +22,13 @@
     android:stretchColumns="1">
     
     <View 
-        android:layout_height="100px"
+        android:layout_height="80dp"
         android:background="@null" />
     
     <TableRow>
         
         <View 
-        android:layout_width="50px"
+        android:layout_width="40dp"
         android:background="@null" />
         
 	    <EditText
@@ -39,7 +39,7 @@
 	        android:ems="10"
 	        android:shadowColor="#000000"
 	        android:textColor="#A1B2C3"
-	        android:textSize="15pt"
+	        android:textSize="12pt"
 	        android:typeface="normal"
 	        android:textStyle="italic"
 			android:background="@null"
