@@ -41,8 +41,9 @@ public class Intro extends CommonActivity {
         
 
         bgmPlayer = MediaPlayer.create( this, R.raw.bgm_main );
+        
         bgmPlayer.start();
-        bgmPlayer.setLooping(true);
+        bgmPlayer.setLooping(true);    	
         
         
 //        ImgIntro  = (ImageView)findViewById(R.id.intro);
@@ -70,8 +71,15 @@ public class Intro extends CommonActivity {
 //    		sp.release();
 //    	}
     	bgmPlayer.stop();
-    	bgmPlayer.release();
+    	//bgmPlayer.release();
     	super.onStop();
+    }
+    
+    protected void onDestroy()
+    {
+    	//bgmPlayer.stop();
+    	bgmPlayer.release();
+    	super.onDestroy();	
     }
     
         
