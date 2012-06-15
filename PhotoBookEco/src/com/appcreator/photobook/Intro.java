@@ -1,10 +1,11 @@
 package com.appcreator.photobook;
 
-import android.media.AudioManager;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.ImageView;
 
 /*
@@ -86,5 +87,11 @@ public class Intro extends CommonActivity {
 //		    finish();
 //		}
 //	};
+    
+    public void gotoSlide(View v)
+    {
+    	Intent i = new Intent(Intro.this, ThemeSlide.class);
+    	startActivity(i);
+    }
     
 }

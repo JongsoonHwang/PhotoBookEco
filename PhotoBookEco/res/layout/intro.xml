@@ -29,6 +29,7 @@
         
         <View 
         android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@null" />
         
 	    <EditText
@@ -36,7 +37,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:cursorVisible="false"
-	        android:ems="10"
+	        android:ems="5"
 	        android:shadowColor="#000000"
 	        android:textColor="#A1B2C3"
 	        android:textSize="12pt"
@@ -44,8 +45,36 @@
 	        android:textStyle="italic"
 			android:background="@null"
 	        android:hint="이름을 입력하세요!"
-	        android:singleLine="true" />  
-	          
+	        android:singleLine="true" />
+	    
+	    <View 
+	        android:layout_width="100dp"
+	        android:layout_height="40dp"
+	        android:background="@null" />
 	</TableRow>
+	<TableRow>
+	    <View 
+	        android:layout_width="40dp"
+	        android:layout_height="90dp"
+	        android:background="@null" />
+	</TableRow>
+	<TableRow>
+	    <View
+	        android:layout_height="110dp" 
+	        android:background="@null" />
+	    <View
+	        android:layout_height="110dp"
+	        android:background="@null" />
+	    <Button
+	        android:text="goto Slide"
+	        android:textSize="13pt"
+	        android:onClick="gotoSlide"
+	        android:ems="3"
+	        android:textColor="#ffffff"
+	        android:layout_height="110dp"
+	        android:background="@null" />
+	</TableRow>
+	
+
     
 </TableLayout>
