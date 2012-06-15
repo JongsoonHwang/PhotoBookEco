@@ -7,10 +7,9 @@ import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ToggleButton;
 
@@ -57,7 +56,7 @@ public class ThemeSlide extends Activity {
 		btnsound = sp.load(this, R.raw.btnsound, 1);
 	    
 
-	    final ImageButton ib = (ImageButton)this.findViewById(R.id.imageButton3);
+	    final Button ib = (Button)this.findViewById(R.id.imageButton3);
 	    ib.setOnClickListener(new View.OnClickListener( ) { 
 	    	
 	            public void onClick(View v) { 

@@ -60,13 +60,13 @@
 			android:textOn="On Stage"            
             android:background="@drawable/ic_menu_asterisk_off" />     
 
-        <ImageButton
+        <Button
             android:id="@+id/imageButton3"
             android:soundEffectsEnabled="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_menu_drop_off" />
+            android:background="@drawable/ic_menu_drop_onoff" />
     </LinearLayout>
 
 </LinearLayout>
