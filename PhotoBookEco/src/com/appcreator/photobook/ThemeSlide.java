@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ToggleButton;
 
 /*
  * 2012. 06. 02
@@ -34,6 +38,38 @@ public class ThemeSlide extends Activity {
 	
 	    setContentView(resLayoutID);
 	    
+	    final ToggleButton tb = (ToggleButton)this.findViewById(R.id.imageButton2);
+	    tb.setOnClickListener(new View.OnClickListener() { 
+	            public void onClick(View v) { 
+	                if (tb.isChecked()) { 
+	                 tb.setBackgroundDrawable(getResources().getDrawable(R.drawable.ic_menu_asterisk_on)); 
+	                } else { 
+	                 tb.setBackgroundDrawable(getResources().getDrawable(R.drawable.ic_menu_asterisk_off)); 
+	                }
+	             } 
+	        });
+	    
+		final SoundPool sp;
+		final int btnsound;
+		
+		sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+		btnsound = sp.load(this, R.raw.btnsound, 1);
+	    
+
+	    final Button ib = (Button)this.findViewById(R.id.imageButton3);
+	    ib.setOnClickListener(new View.OnClickListener( ) { 
+	    	
+	            public void onClick(View v) { 
+	                sp.play(btnsound, 1, 1, 0, 0, 1);
+	                
+//	                new Handler().postDelayed(new Runnable() {
+//	                    public void run() {
+//	                    	sp.play(btnsound, 1, 1, 0, 0, 1);
+//	                    }
+//	                }, 100);	                
+	            } 
+	        });	
+	    
     
 //        try
 //        {
@@ -46,7 +82,7 @@ public class ThemeSlide extends Activity {
 //        	e.printStackTrace(); 
 //        }	
 	    current = 0;
-	    showSlide(current);
+	   // showSlide(current);
         
 //	       ((TextView)findViewById(resIntroID)).setOnClickListener(new View.OnClickListener() {
 //
@@ -128,7 +164,7 @@ public class ThemeSlide extends Activity {
     	if( this.current > 0 ) 
     	{
     		this.current--;
-    		showSlide(this.current);
+    		//showSlide(this.current);
     		
     	}
     }
@@ -139,7 +175,7 @@ public class ThemeSlide extends Activity {
     	if( this.current < length-1 ) 
     	{
     		this.current++;
-    		showSlide(this.current);
+    		//showSlide(this.current);
     		
     	}    	
     }

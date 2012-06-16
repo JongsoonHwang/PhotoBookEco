@@ -42,29 +42,31 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/button2"
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:soundEffectsEnabled="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
             android:layout_weight="1"
-            android:text="Button" />
+            android:src="@drawable/ic_menu_android_onoff" />
+
+        <ToggleButton
+            android:id="@+id/imageButton2"
+            android:soundEffectsEnabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textOff="Off Stage" 
+			android:textOn="On Stage"            
+            android:background="@drawable/ic_menu_asterisk_off" />     
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/imageButton3"
+            android:soundEffectsEnabled="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
             android:layout_weight="1"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"
-            android:text="Button" />
+            android:background="@drawable/ic_menu_drop_onoff" />
     </LinearLayout>
 
 </LinearLayout>
