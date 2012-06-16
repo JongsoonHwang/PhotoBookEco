@@ -14,17 +14,12 @@
 		android:layout_height="wrap_content"
 		android:padding="4dp"
 		>
-		<ImageView
-			android:id="@+id/itemPhoto"
-			android:layout_width="80dp"
-    		android:layout_height="52dp"
-    		android:layout_margin="4dp"
-			/>
 		<LinearLayout
 			android:orientation="vertical"
-			android:layout_width="fill_parent"
+			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="5dp"
+			android:layout_weight="3"
 			>
 			<TextView
 				android:id="@+id/itemDate"
@@ -32,7 +27,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginRight="4dp"
 				android:text="OOOO년 OO월 OO일"
-				android:gravity="right"
+				android:gravity="left"
 				android:textColor="#ff006600"
 		    	android:textSize="12dp"
 		    	android:textStyle="bold"
@@ -51,6 +46,13 @@
 				android:background="#fffeff85"
 				/>
 		</LinearLayout>
+		<ImageView
+			android:id="@+id/itemPhoto"
+			android:layout_width="0dp"
+    		android:layout_height="52dp"
+    		android:layout_margin="4dp"
+    		android:layout_weight="1"
+			/>
 	</LinearLayout>
 	<!--
 	<LinearLayout

@@ -46,7 +46,7 @@
 	    	android:layout_height="wrap_content"
 	    	android:layout_gravity="center_horizontal"
 	    	>
-			<Button
+			<com.appcreator.photobook.BitmapBtn
 				android:id="@+id/loading_okBtn"
 			    android:layout_width="100dp"
 			    android:layout_height="48dp"
@@ -55,7 +55,7 @@
 			    android:textStyle="bold"
 			    android:textColor="#ff420000"
 			    />
-			<Button
+			<com.appcreator.photobook.BitmapBtn
 				android:id="@+id/loading_cancelBtn"
 			    android:layout_width="100dp"
 			    android:layout_height="48dp"

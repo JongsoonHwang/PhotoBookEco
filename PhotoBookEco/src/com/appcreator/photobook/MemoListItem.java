@@ -49,7 +49,7 @@ public class MemoListItem {
 		mData[0] = memoDate;
 		mData[1] = memoText;
 		mData[2] = id_photo;
-		mData[3] = uri_photo;
+		mData[3] = uri_photo;//이런식으로
 		
 	}
 	

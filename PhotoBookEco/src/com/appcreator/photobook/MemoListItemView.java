@@ -1,51 +1,17 @@
 package com.appcreator.photobook;
 
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MemoListItemView extends LinearLayout {
 	
-	/*
-	 * 외장 메모리 패스
-	 */
-	public static String ExternalPath = "/sdcard/";
-
-	/**
-	 * 외장 메모리 패스 체크 여부
-	 */
-	public static boolean ExternalChecked = false;
-
-	/**
-	 * 사진 저장 위치
-	 */
-	public static String FOLDER_PHOTO 		= "PhotoBook/photo/";
-
-	/**
-	 * 동영상 저장 위치
-	 */
-	public static String FOLDER_VIDEO 		= "PhotoBook/video/";
-
-	/**
-	 * 녹음 저장 위치
-	 */
-	public static String FOLDER_VOICE 		= "PhotoBook/voice/";
-
-	/**
-	 * 손글씨 저장 위치
-	 */
-	public static String FOLDER_HANDWRITING 	= "PhotoBook/handwriting/";
-
-	/**
-	 * 미디어 포맷
-	 */
-	public static final String URI_MEDIA_FORMAT		= "content://media";
 
 	private ImageView itemPhoto;
 
@@ -59,26 +25,24 @@ public class MemoListItemView extends LinearLayout {
 
 	private ImageView itemHandwriting;
 
-	private Context mContext;
-
 	private String mVideoUri;
 
 	private String mVoiceUri;
+	
 
-	public MemoListItemView(Context context) {
+	public MemoListItemView(Context context, int count) {
 		super(context);
-		mContext = context;
 
+		Log.d("<<<", "mCount : "+count);
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		
 		inflater.inflate(R.layout.memo_listitem, this, true);
-
+		
 		itemPhoto = (ImageView) findViewById(R.id.itemPhoto);
 
 		itemDate = (TextView) findViewById(R.id.itemDate);
 
 		itemText = (TextView) findViewById(R.id.itemText);
-
-		itemHandwriting = (ImageView) findViewById(R.id.itemHandwriting);
 
 //		itemVideoState = (ImageView) findViewById(R.id.itemVideoState);
 //		itemVideoState.setOnClickListener(new OnClickListener() {
@@ -132,13 +96,28 @@ public class MemoListItemView extends LinearLayout {
 			if (data == null || data.equals("-1") || data.equals("")) {
 				itemHandwriting.setImageBitmap(null);
 			} else {
-				itemHandwriting.setImageURI(Uri.parse(FOLDER_HANDWRITING + data));
+				itemHandwriting.setImageURI(Uri.parse(BasicDefine.FOLDER_HANDWRITING + data));
 			}
 		} else if (index == 3) {
 			if (data == null || data.equals("-1") || data.equals("")) {
 				itemPhoto.setImageResource(R.drawable.nike);
 			} else {
-				itemPhoto.setImageURI(Uri.parse(FOLDER_PHOTO + data));
+				Log.d("where", "Uri.parse(FOLDER_PHOTO + data) : "+Uri.parse(BasicDefine.FOLDER_PHOTO + data));
+	//			itemPhoto.
+				BitmapFactory.Options options = new BitmapFactory.Options(); 
+    			options.inSampleSize = 2;
+    			Bitmap bitmap = BitmapFactory.decodeFile(BasicDefine.FOLDER_PHOTO + data, options);
+    			itemPhoto.setImageBitmap(bitmap);
+//				itemPhoto.setImageURI(Uri.parse(BasicDefine.FOLDER_PHOTO + data));
+				/*
+				 * BitmapFactory.Options options = new BitmapFactory.Options(); 
+        			options.inSampleSize = 2; 
+  
+        			Bitmap bitmap = BitmapFactory.decodeFile(BasicDefine.FOLDER_PHOTO + filename, options);
+				 */
+				
+				
+				
 			}
 		} else {
 			throw new IllegalArgumentException();

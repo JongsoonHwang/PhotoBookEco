@@ -30,6 +30,8 @@
         <activity android:name="NewPhotoBook"></activity>
         <activity android:name="ThemeSlide"></activity>
         <activity android:name="PhotoBook"></activity>
+        <activity android:name="Modify"></activity>
+        <activity android:name="OriginalPicture"></activity>
         <activity android:name="PhotoCaptureActivity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
@@ -38,6 +40,8 @@
         <activity android:name="NewPhotoBook" android:screenOrientation="portrait"></activity>
         <activity android:name="ThemeSlide" android:screenOrientation="portrait"></activity>
         <activity android:name="PhotoBook" android:screenOrientation="portrait"></activity>
+        <activity android:name="PhotoSelectionActivity" android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
 
     </application>
 

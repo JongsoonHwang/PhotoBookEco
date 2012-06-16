@@ -3,14 +3,16 @@ package com.appcreator.photobook;
 import java.io.File;
 import java.util.Date;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -53,6 +55,9 @@ public class Main extends CommonActivity {
 	 */
 	int mMemoCount = 0;
 	
+	//Intent를 위한 임시 버트
+	Button btn;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -65,19 +70,30 @@ public class Main extends CommonActivity {
     		return;
     	} else {
     		String externalPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-    		if (!BasicInfo.ExternalChecked && externalPath != null) {
-    			BasicInfo.ExternalPath = externalPath + File.separator;
-    			Log.d(TAG, "ExternalPath : " + BasicInfo.ExternalPath);
+    		if (!BasicDefine.ExternalChecked && externalPath != null) {
+    			BasicDefine.ExternalPath = externalPath + File.separator;
+    			Log.d("where", "ExternalPath : " + BasicDefine.ExternalPath);
 
-    			BasicInfo.FOLDER_PHOTO = BasicInfo.ExternalPath + BasicInfo.FOLDER_PHOTO;
-    			//BasicInfo.FOLDER_VIDEO = BasicInfo.ExternalPath + BasicInfo.FOLDER_VIDEO;
-    			//BasicInfo.FOLDER_VOICE = BasicInfo.ExternalPath + BasicInfo.FOLDER_VOICE;
-    			//BasicInfo.FOLDER_HANDWRITING = BasicInfo.ExternalPath + BasicInfo.FOLDER_HANDWRITING;
-    			BasicInfo.DATABASE_NAME = BasicInfo.ExternalPath + BasicInfo.DATABASE_NAME;
+    			BasicDefine.FOLDER_PHOTO = BasicDefine.ExternalPath + BasicDefine.FOLDER_PHOTO;
+    			BasicDefine.FOLDER_VIDEO = BasicDefine.ExternalPath + BasicDefine.FOLDER_VIDEO;
+    			BasicDefine.FOLDER_VOICE = BasicDefine.ExternalPath + BasicDefine.FOLDER_VOICE;
+    			BasicDefine.FOLDER_HANDWRITING = BasicDefine.ExternalPath + BasicDefine.FOLDER_HANDWRITING;
+    			BasicDefine.DATABASE_NAME = BasicDefine.ExternalPath + BasicDefine.DATABASE_NAME;
 
-    			BasicInfo.ExternalChecked = true;
+    			BasicDefine.ExternalChecked = true;
     		}
     	}
+        btn = (Button)findViewById(R.id.titleBackgroundBtn);
+        btn.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(getApplicationContext(), Modify.class); 
+                intent.putExtra(BasicDefine.KEY_MEMO_MODE, BasicDefine.MODE_INSERT); 
+                startActivityForResult(intent, BasicDefine.REQ_INSERT_ACTIVITY);
+			
+			}
+		});
         
 	    // 메모 리스트
         mMemoListView = (ListView)findViewById(R.id.memoList);
@@ -124,71 +140,72 @@ public class Main extends CommonActivity {
     	}
     }
     
-    /**
-     * 메모 리스트 데이터 로딩
-     */
-    public int loadMemoListData() {
-     	String SQL = "select _id, INPUT_DATE, CONTENT_TEXT, ID_PHOTO, ID_VIDEO, ID_VOICE, ID_HANDWRITING from MEMO order by INPUT_DATE desc";
-
-     	int recordCount = -1;
-     	if (this.mDatabase != null) {
-	   		Cursor outCursor = this.mDatabase.rawQuery(SQL);
-
-	   		recordCount = outCursor.getCount();
-			Log.d(TAG, "cursor count : " + recordCount + "\n");
-
-			mMemoListAdapter.clear();
-
-			for (int i = 0; i < recordCount; i++) {
-				outCursor.moveToNext();
-
-				String memoId = outCursor.getString(0);
-
-				String dateStr = outCursor.getString(1);
-				if (dateStr != null && dateStr.length() > 10) {
-					//dateStr = dateStr.substring(0, 10);
-					try {
-						Date inDate = BasicInfo.dateFormat.parse(dateStr);
-						dateStr = BasicInfo.dateNameFormat2.format(inDate);
-					} catch(Exception ex) {
-						ex.printStackTrace();
-					}
-				} else {
-					dateStr = "";
-				}
-
-				String memoStr = outCursor.getString(2);
-				String photoId = outCursor.getString(3);
-				String photoUriStr = getPhotoUriStr(photoId);
-
-				String videoId = outCursor.getString(4);
-				String videoUriStr = null;
-
-				String voiceId = outCursor.getString(5);
-				String voiceUriStr = null;
-
-				String handwritingId = outCursor.getString(6);
-				String handwritingUriStr = null;
-
-				//Stage3 added
-				//handwritingUriStr = getHandwritingUriStr(handwritingId);
-
-				// Stage4 added
-				//videoUriStr = getVideoUriStr(videoId);
-				//voiceUriStr = getVoiceUriStr(voiceId);
-
-
-				mMemoListAdapter.addItem(new MemoListItem("1", "2012-06-10 18:09", "오늘은 코딩하는 날", null, null));
-				
-			}
-
-			outCursor.close();
-
-			mMemoListAdapter.notifyDataSetChanged();
-	   }
-
-	   return recordCount;
-    }
+//    /**
+//     * 메모 리스트 데이터 로딩
+//     */
+//    public int loadMemoListData() {
+//     	String SQL = "select _id, INPUT_DATE, CONTENT_TEXT, ID_PHOTO from MEMO order by INPUT_DATE desc";
+////     	String SQL = "select _id, INPUT_DATE, CONTENT_TEXT, ID_PHOTO, ID_VIDEO, ID_VOICE, ID_HANDWRITING from MEMO order by INPUT_DATE desc";
+//
+//     	int recordCount = -1;
+//     	if (this.mDatabase != null) {
+//	   		Cursor outCursor = this.mDatabase.rawQuery(SQL);
+//
+//	   		recordCount = outCursor.getCount();
+//			Log.d(TAG, "cursor count : " + recordCount + "\n");
+//
+//			mMemoListAdapter.clear();
+//
+//			for (int i = 0; i < recordCount; i++) {
+//				outCursor.moveToNext();
+//
+//				String memoId = outCursor.getString(0);
+//
+//				String dateStr = outCursor.getString(1);
+//				if (dateStr != null && dateStr.length() > 10) {
+//					//dateStr = dateStr.substring(0, 10);
+//					try {
+//						Date inDate = BasicDefine.dateFormat.parse(dateStr);
+//						dateStr = BasicDefine.dateNameFormat2.format(inDate);
+//					} catch(Exception ex) {
+//						ex.printStackTrace();
+//					}
+//				} else {
+//					dateStr = "";
+//				}
+//
+//				String memoStr = outCursor.getString(2);
+//				String photoId = outCursor.getString(3);
+//				String photoUriStr = getPhotoUriStr(photoId);
+//
+////				String videoId = outCursor.getString(4);
+////				String videoUriStr = null;
+////
+////				String voiceId = outCursor.getString(5);
+////				String voiceUriStr = null;
+////
+////				String handwritingId = outCursor.getString(6);
+////				String handwritingUriStr = null;
+//
+//				//Stage3 added
+//				//handwritingUriStr = getHandwritingUriStr(handwritingId);
+//
+//				// Stage4 added
+//				//videoUriStr = getVideoUriStr(videoId);
+//				//voiceUriStr = getVoiceUriStr(voiceId);
+//
+//
+//				mMemoListAdapter.addItem(new MemoListItem(memoId, dateStr, memoStr, photoId, photoUriStr));
+//				
+//			}
+//
+//			outCursor.close();
+//
+//			mMemoListAdapter.notifyDataSetChanged();
+//	   }
+//
+//	   return recordCount;
+//    }
     
 	/**
 	 * 사진 데이터 URI 가져오기
@@ -214,24 +231,162 @@ public class Main extends CommonActivity {
 
 //    	// 메모 보기 액티비티 띄우기
 //		Intent intent = new Intent(getApplicationContext(), MemoInsertActivity.class);
-//		intent.putExtra(BasicInfo.KEY_MEMO_MODE, BasicInfo.MODE_VIEW);
-//		intent.putExtra(BasicInfo.KEY_MEMO_ID, item.getId());
-//		intent.putExtra(BasicInfo.KEY_MEMO_DATE, item.getData(0));
-//		intent.putExtra(BasicInfo.KEY_MEMO_TEXT, item.getData(1));
+//		intent.putExtra(BasicDefine.KEY_MEMO_MODE, BasicDefine.MODE_VIEW);
+//		intent.putExtra(BasicDefine.KEY_MEMO_ID, item.getId());
+//		intent.putExtra(BasicDefine.KEY_MEMO_DATE, item.getData(0));
+//		intent.putExtra(BasicDefine.KEY_MEMO_TEXT, item.getData(1));
 //
-//		intent.putExtra(BasicInfo.KEY_ID_HANDWRITING, item.getData(2));
-//		intent.putExtra(BasicInfo.KEY_URI_HANDWRITING, item.getData(3));
+//		intent.putExtra(BasicDefine.KEY_ID_HANDWRITING, item.getData(2));
+//		intent.putExtra(BasicDefine.KEY_URI_HANDWRITING, item.getData(3));
 //
-//		intent.putExtra(BasicInfo.KEY_ID_PHOTO, item.getData(4));
-//		intent.putExtra(BasicInfo.KEY_URI_PHOTO, item.getData(5));
+//		intent.putExtra(BasicDefine.KEY_ID_PHOTO, item.getData(4));
+//		intent.putExtra(BasicDefine.KEY_URI_PHOTO, item.getData(5));
 //
-//		intent.putExtra(BasicInfo.KEY_ID_VIDEO, item.getData(6));
-//		intent.putExtra(BasicInfo.KEY_URI_VIDEO, item.getData(7));
+//		intent.putExtra(BasicDefine.KEY_ID_VIDEO, item.getData(6));
+//		intent.putExtra(BasicDefine.KEY_URI_VIDEO, item.getData(7));
 //
-//		intent.putExtra(BasicInfo.KEY_ID_VOICE, item.getData(8));
-//		intent.putExtra(BasicInfo.KEY_URI_VOICE, item.getData(9));
+//		intent.putExtra(BasicDefine.KEY_ID_VOICE, item.getData(8));
+//		intent.putExtra(BasicDefine.KEY_URI_VOICE, item.getData(9));
 //
-//		startActivityForResult(intent, BasicInfo.REQ_VIEW_ACTIVITY);
+//		startActivityForResult(intent, BasicDefine.REQ_VIEW_ACTIVITY);
     }
+	protected void onActivityResult(int requestCode, int resultCode, Intent intent){
+		super.onActivityResult(requestCode, resultCode, intent);
+		
+		switch(requestCode){
+		case BasicDefine.REQ_VIEW_ACTIVITY :
+			loadMemoListData();
+			break;
+		case BasicDefine.REQ_INSERT_ACTIVITY: 
+            if(resultCode == RESULT_OK) { 
+                loadMemoListData(); 
+            } 
+  
+            break;
+//		case BasicDefine.REQ_PHOTO_CAPTURE_ACTIVITY :
+//			if (resultCode == RESULT_OK) {
+//
+//				boolean isPhotoExists = checkCapturedPhotoFile();
+//		    	if (isPhotoExists) {
+//		    		Log.d(TAG, "image file exists : " + BasicDefine.FOLDER_PHOTO + "captured");
+//		    		
+//		    		BitmapFactory.Options opts = new BitmapFactory.Options();
+//		    		opts.inSampleSize = 1;
+//		    		
+//
+//		    		resultPhotoBitmap = BitmapFactory.decodeFile(BasicDefine.FOLDER_PHOTO + "captured", opts);
+//
+//		    		tempPhotoUri = "captured";
+//
+//		    		mPhoto.setImageBitmap(resultPhotoBitmap);
+//		            isPhotoCaptured = true;
+//
+//		            mPhoto.invalidate();
+//		    	} else {
+//		    		Log.d(TAG, "image file doesn't exists : " + BasicDefine.FOLDER_PHOTO + "captured");
+//		    	}
+//			}
+//
+//			break;
+//		case BasicDefine.REQ_PHOTO_SELECTION_ACTIVITY:  // 사진을 앨범에서 선택하는 경우
+//			Log.d(TAG, "onActivityResult() for REQ_PHOTO_LOADING_ACTIVITY.");
+//
+//			if (resultCode == RESULT_OK) {
+//				Log.d(TAG, "resultCode : " + resultCode);
+//
+//				Uri getPhotoUri = intent.getParcelableExtra(BasicDefine.KEY_URI_PHOTO);
+//				try { 
+//					
+//					BitmapFactory.Options opts = new BitmapFactory.Options();
+//		    		opts.inSampleSize = 1;
+//					
+//					resultPhotoBitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(getPhotoUri), null, opts);
+//				} catch (FileNotFoundException e) {
+//					e.printStackTrace();
+//				}
+//				if(resultPhotoBitmap == null){
+//					Log.d("where", "resultPhotoBitmap : "+resultPhotoBitmap);
+//				}
+//
+//				mPhoto.setImageBitmap(resultPhotoBitmap);
+//	            isPhotoCaptured = true;
+//
+//	            mPhoto.invalidate();
+//			}
+//
+//			break;
+		}
+	}
+	public int loadMemoListData() { 
+        String SQL = "select _id, INPUT_DATE, CONTENT_TEXT, ID_PHOTO from MEMO order by INPUT_DATE desc"; 
+//        String SQL = "select _id, INPUT_DATE, CONTENT_TEXT, ID_PHOTO, ID_VIDEO, ID_VOICE, ID_HANDWRITING from MEMO order by INPUT_DATE desc"; 
+        Log.d("where", "loadMemoListData 진입");
+        int recordCount = -1; 
+        if (Main.mDatabase != null) { 
+        	
+            Cursor outCursor = Main.mDatabase.rawQuery(SQL); 
+            Log.d("where", "outCursor : "+outCursor.getCount());
+            recordCount = outCursor.getCount(); 
+            Log.d(TAG, "cursor count : " + recordCount + "\n"); 
+  
+            mMemoListAdapter.clear(); 
+  
+            for (int i = 0; i < recordCount; i++) {
+            	Log.d("where", "포문 ");
+                outCursor.moveToNext(); 
+  
+                String memoId = outCursor.getString(0); 
+  
+                String dateStr = outCursor.getString(1); 
+                if (dateStr != null && dateStr.length() > 10) { 
+                    //dateStr = dateStr.substring(0, 10); 
+                    try { 
+                        Date inDate = BasicDefine.dateFormat.parse(dateStr); 
+                        dateStr = BasicDefine.dateNameFormat2.format(inDate); 
+                    } catch(Exception ex) { 
+                        ex.printStackTrace(); 
+                    } 
+                } else { 
+                    dateStr = ""; 
+                } 
+  
+                String memoStr = outCursor.getString(2); 
+                String photoId = outCursor.getString(3); 
+                String photoUriStr = getPhotoUriStr(photoId); 
+                Log.d("where", "memoStr : "+memoStr+"  photoId : "+photoId +"  photoUriStr : "+photoUriStr);
+  
+//                String videoId = outCursor.getString(4); 
+//                String videoUriStr = null; 
+//  
+//                String voiceId = outCursor.getString(5); 
+//                String voiceUriStr = null; 
+//  
+//                String handwritingId = outCursor.getString(6); 
+//                String handwritingUriStr = null; 
+//  
+//                // Stage3 added 
+//                handwritingUriStr = getHandwritingUriStr(handwritingId); 
+//  
+//                // Stage4 added 
+//                videoUriStr = getVideoUriStr(videoId); 
+//                voiceUriStr = getVoiceUriStr(voiceId); 
+  
+  
+//                mMemoListAdapter.addItem(new MemoListItem(memoId, dateStr, memoStr, handwritingId, handwritingUriStr, photoId, photoUriStr, videoId, videoUriStr, voiceId, voiceUriStr)); 
+                mMemoListAdapter.addItem(new MemoListItem(memoId, dateStr, memoStr, photoId, photoUriStr)); 
+            
+            } 
+           
+  
+            outCursor.close(); 
+  
+            mMemoListAdapter.notifyDataSetChanged(); 
+       } 
+        else{
+        	Log.d("where", "데이터베이스 없당");
+        	
+        }
+        return recordCount; 
+    } 
 
 }

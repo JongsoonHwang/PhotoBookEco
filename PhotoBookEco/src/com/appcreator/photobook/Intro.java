@@ -53,7 +53,7 @@ public class Intro extends CommonActivity {
 		public void run() {
 			// TODO Auto-generated method stubs
 
-			Intent i = new Intent(Intro.this, NewPhotoBook.class);
+			Intent i = new Intent(Intro.this, Main.class);
 
 		    startActivity(i);
 		    finish();

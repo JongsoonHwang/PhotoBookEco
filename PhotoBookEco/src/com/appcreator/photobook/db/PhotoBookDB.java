@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.appcreator.photobook.BasicInfo;
+import com.appcreator.photobook.BasicDefine;
 
 /**
  * 메모 데이터베이스
@@ -90,7 +90,7 @@ public class PhotoBookDB {
 	 * 데이터베이스 열기
 	 */
     public boolean open() {
-    	println("opening database [" + BasicInfo.DATABASE_NAME + "].");
+    	println("opening database [" + BasicDefine.DATABASE_NAME + "].");
 
     	dbHelper = new DatabaseHelper(context);
     	db = dbHelper.getWritableDatabase();
@@ -102,7 +102,7 @@ public class PhotoBookDB {
      * 데이터베이스 닫기
      */
     public void close() {
-    	println("closing database [" + BasicInfo.DATABASE_NAME + "].");
+    	println("closing database [" + BasicDefine.DATABASE_NAME + "].");
     	db.close();
 
     	database = null;
@@ -151,11 +151,11 @@ public class PhotoBookDB {
     private class DatabaseHelper extends SQLiteOpenHelper {
 
         public DatabaseHelper(Context context) {
-            super(context, BasicInfo.DATABASE_NAME, null, DATABASE_VERSION);
+            super(context, BasicDefine.DATABASE_NAME, null, DATABASE_VERSION);
         }
 
         public void onCreate(SQLiteDatabase db) {
-        	println("creating database [" + BasicInfo.DATABASE_NAME + "].");
+        	println("creating database [" + BasicDefine.DATABASE_NAME + "].");
 
         	// TABLE_MEMO
         	println("creating table [" + TABLE_MEMO + "].");
@@ -320,7 +320,7 @@ public class PhotoBookDB {
 
         public void onOpen(SQLiteDatabase db)
         {
-        	println("opened database [" + BasicInfo.DATABASE_NAME + "].");
+        	println("opened database [" + BasicDefine.DATABASE_NAME + "].");
 
         }
 

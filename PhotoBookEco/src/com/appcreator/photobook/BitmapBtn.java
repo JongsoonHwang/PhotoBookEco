@@ -69,8 +69,8 @@ public class BitmapBtn extends Button {
 	public static final int BITMAP_ALIGN_RIGHT = 2;
 
 
-	int backgroundBitmapNormal = R.drawable.nike;
-	int backgroundBitmapClicked = R.drawable.nike_r;
+	int backgroundBitmapNormal = R.drawable.list_bg;
+	int backgroundBitmapClicked = R.drawable.ic_launcher;
 
 
 	/**
