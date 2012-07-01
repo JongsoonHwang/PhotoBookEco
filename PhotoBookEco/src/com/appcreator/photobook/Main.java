@@ -83,6 +83,7 @@ public class Main extends CommonActivity {
     			BasicDefine.ExternalChecked = true;
     		}
     	}
+        //제일 위에 있는 버튼 클릭시 (수정부분으로 전환)
         btn = (Button)findViewById(R.id.titleBackgroundBtn);
         btn.setOnClickListener(new OnClickListener() {
 			
@@ -230,25 +231,34 @@ public class Main extends CommonActivity {
     	MemoListItem item = (MemoListItem)mMemoListAdapter.getItem(position);
 
 //    	// 메모 보기 액티비티 띄우기
-//		Intent intent = new Intent(getApplicationContext(), MemoInsertActivity.class);
-//		intent.putExtra(BasicDefine.KEY_MEMO_MODE, BasicDefine.MODE_VIEW);
-//		intent.putExtra(BasicDefine.KEY_MEMO_ID, item.getId());
-//		intent.putExtra(BasicDefine.KEY_MEMO_DATE, item.getData(0));
-//		intent.putExtra(BasicDefine.KEY_MEMO_TEXT, item.getData(1));
-//
-//		intent.putExtra(BasicDefine.KEY_ID_HANDWRITING, item.getData(2));
-//		intent.putExtra(BasicDefine.KEY_URI_HANDWRITING, item.getData(3));
-//
-//		intent.putExtra(BasicDefine.KEY_ID_PHOTO, item.getData(4));
-//		intent.putExtra(BasicDefine.KEY_URI_PHOTO, item.getData(5));
-//
-//		intent.putExtra(BasicDefine.KEY_ID_VIDEO, item.getData(6));
-//		intent.putExtra(BasicDefine.KEY_URI_VIDEO, item.getData(7));
-//
-//		intent.putExtra(BasicDefine.KEY_ID_VOICE, item.getData(8));
-//		intent.putExtra(BasicDefine.KEY_URI_VOICE, item.getData(9));
-//
-//		startActivityForResult(intent, BasicDefine.REQ_VIEW_ACTIVITY);
+		Intent intent = new Intent(getApplicationContext(), Modify.class);
+		
+		
+		
+		if(position == 0){
+			 intent.putExtra(BasicDefine.KEY_MEMO_MODE, BasicDefine.MODE_INSERT); 
+	         startActivityForResult(intent, BasicDefine.REQ_INSERT_ACTIVITY);
+		}
+		else{
+			intent.putExtra(BasicDefine.KEY_MEMO_MODE, BasicDefine.MODE_VIEW);
+			intent.putExtra(BasicDefine.KEY_MEMO_ID, item.getId());
+			intent.putExtra(BasicDefine.KEY_MEMO_DATE, item.getData(0));
+			intent.putExtra(BasicDefine.KEY_MEMO_TEXT, item.getData(1));
+		
+	//		intent.putExtra(BasicDefine.KEY_ID_HANDWRITING, item.getData(2));
+	//		intent.putExtra(BasicDefine.KEY_URI_HANDWRITING, item.getData(3));
+	//
+			intent.putExtra(BasicDefine.KEY_ID_PHOTO, item.getData(2));
+			intent.putExtra(BasicDefine.KEY_URI_PHOTO, item.getData(3));
+	
+	//		intent.putExtra(BasicDefine.KEY_ID_VIDEO, item.getData(6));
+	//		intent.putExtra(BasicDefine.KEY_URI_VIDEO, item.getData(7));
+	//
+	//		intent.putExtra(BasicDefine.KEY_ID_VOICE, item.getData(8));
+	//		intent.putExtra(BasicDefine.KEY_URI_VOICE, item.getData(9));
+	//
+			startActivityForResult(intent, BasicDefine.REQ_VIEW_ACTIVITY);
+		}
     }
 	protected void onActivityResult(int requestCode, int resultCode, Intent intent){
 		super.onActivityResult(requestCode, resultCode, intent);
@@ -329,7 +339,11 @@ public class Main extends CommonActivity {
             recordCount = outCursor.getCount(); 
             Log.d(TAG, "cursor count : " + recordCount + "\n"); 
   
+            
             mMemoListAdapter.clear(); 
+            
+            mMemoListAdapter.addItem(new MemoListItem(null, null, null, null, null)); 
+            
   
             for (int i = 0; i < recordCount; i++) {
             	Log.d("where", "포문 ");

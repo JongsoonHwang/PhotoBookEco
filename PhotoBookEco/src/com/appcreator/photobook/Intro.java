@@ -23,6 +23,7 @@ public class Intro extends CommonActivity {
 	
 	ImageView ImgIntro;
 	static Handler mHandler;
+	Animation animation;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,8 +36,8 @@ public class Intro extends CommonActivity {
 		
         setContentView(resLayoutID);
         
-        ImgIntro  = (ImageView)findViewById(R.id.intro);
-        Animation animation = null;
+        ImgIntro  = (ImageView)findViewById(R.id.intro); 
+         
         animation = AnimationUtils.loadAnimation(Intro.this, R.anim.alpha);
         ImgIntro.startAnimation(animation);
         
